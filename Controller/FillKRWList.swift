@@ -20,10 +20,11 @@ class FillKRWList: NSObject {
                         let newUrl = URL(string: "https://api.gopax.co.kr/trading-pairs/\(pairName)/ticker")
                         NetworkAdapter.sharedInstance.getData(from: newUrl!){ (success, result) in
                             if success{
-                                let name = pairName
-                                let price = result!["price"] as! Int
-                                let volune = result!["volume"] as! Double
-                                KRW.KRWlist.append(KRW(name: name, price: String(price), volume: String(volune)))
+                                if let price = result!["price"] as? Int{
+                                    let name = pairName
+                                    let volune = result!["volume"] as! Double
+                                    KRW.KRWlist.append(KRW(name: name, price: String(price), volume: String(volune)))
+                                }
                             }else{
                                 
                             }
