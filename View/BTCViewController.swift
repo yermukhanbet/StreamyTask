@@ -9,22 +9,34 @@
 import UIKit
 
 class BTCViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+     let tableView = UITableView()
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            setUptTableView()
+            for item in BTC.BTClist{
+                print("\(item.name) \(item.volume) \(item.price)")
+            }
+        }
+        private func setUptTableView(){
+            self.view.addSubview(tableView)
+            tableView.frame = self.view.safeAreaLayoutGuide.layoutFrame
+            tableView.delegate = self
+            tableView.dataSource = self
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension BTCViewController: UITableViewDelegate, UITableViewDataSource{
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return 1
+        }
+        func numberOfSections(in tableView: UITableView) -> Int {
+            print(BTC.BTClist.count)
+            return BTC.BTClist.count-1
+        }
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = UITableViewCell()
+            print(indexPath.section)
+            cell.textLabel?.text = "\(BTC.BTClist[indexPath.section].name) \(BTC.BTClist[indexPath.section].volume) \(BTC.BTClist[indexPath.section].price)"
+            return cell
+        }
+        
     }
-    */
-
-}

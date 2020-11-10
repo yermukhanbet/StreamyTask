@@ -12,20 +12,18 @@ class BTC: NSObject {
     var name: String
     var price: String
     var volume: String
-    var title: String
     static var saved = BTC()
-    static var KRWlist: [BTC] = []
-    init(name: String, price: String, volume: String, title: String){
+    static var BTCPairs: [String] = []
+    static var BTClist: [BTC] = []
+    init(name: String, price: String, volume: String){
         self.name = name
         self.price = price
         self.volume = volume
-        self.title = title
     }
     override init(){
         self.name = ""
         self.price = ""
         self.volume = ""
-        self.title = ""
     }
      required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

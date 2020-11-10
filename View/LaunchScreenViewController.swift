@@ -142,7 +142,9 @@ class LaunchScreenViewController: UIViewController {
         }
     }
     private func fillTables(){
-        FillKRWList.shared.getData()
+        FillKRWList.shared.fillPairs()
+//        FillKRWList.shared.fillKRW()
+//        FillKRWList.shared.fillBTC()
     }
 }
 extension UIView {

@@ -13,6 +13,7 @@ class KRW: NSObject {
     var price: String
     var volume: String
     static var saved = KRW()
+    static var KRWPairs: [String] = []
     static var KRWlist: [KRW] = []
     init(name: String, price: String, volume: String){
         self.name = name
