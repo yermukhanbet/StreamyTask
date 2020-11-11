@@ -13,9 +13,6 @@ class KRWViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUptTableView()
-        for item in KRW.KRWlist{
-            print("\(item.name) \(item.volume) \(item.price)")
-        }
     }
     private func setUptTableView(){
         self.view.addSubview(tableView)
@@ -33,8 +30,7 @@ extension KRWViewController: UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        print(indexPath.section)
-        cell.textLabel?.text = "\(KRW.KRWlist[indexPath.section].name) \(KRW.KRWlist[indexPath.section].volume) \(KRW.KRWlist[indexPath.section].price)"
+        cell.textLabel?.text = "\(KRW.KRWlist[indexPath.section].name)  Vol:\(KRW.KRWlist[indexPath.section].volume) Price:\(KRW.KRWlist[indexPath.section].price)"
         return cell
     }
     

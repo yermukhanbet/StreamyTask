@@ -35,7 +35,7 @@ extension BTCViewController: UITableViewDelegate, UITableViewDataSource{
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = UITableViewCell()
             print(indexPath.section)
-            cell.textLabel?.text = "\(BTC.BTClist[indexPath.section].name) \(BTC.BTClist[indexPath.section].volume) \(BTC.BTClist[indexPath.section].price)"
+            cell.textLabel?.text = "\(BTC.BTClist[indexPath.section].name) Volume:\(BTC.BTClist[indexPath.section].volume) Price:\(BTC.BTClist[indexPath.section].price)"
             return cell
         }
         
