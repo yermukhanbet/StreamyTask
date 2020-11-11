@@ -31,7 +31,6 @@ class FillKRWList: NSObject {
         for item in KRW.KRWPairs{
             let url = URL(string: "https://api.gopax.co.kr/trading-pairs/\(item)/ticker")
                 NetworkAdapter.sharedInstance.getData(from: url!){ (success, result) in
-                    print(result)
                     if success{
                         let price = result!["price"] as! Double
                         let volume = result!["volume"] as! Double
@@ -66,11 +65,5 @@ class FillKRWList: NSObject {
                 count = count+1
             }
         }
-    }
-}
-extension NSObject {
-    func delay(_ delay:Double, closure:@escaping ()->()) {
-        DispatchQueue.main.asyncAfter(
-            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
     }
 }

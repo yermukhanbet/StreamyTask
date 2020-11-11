@@ -57,7 +57,6 @@ extension BTCViewController: UITableViewDelegate, UITableViewDataSource{
         return 1
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        print(BTC.BTClist.count)
         return BTC.BTClist.count-1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
