@@ -88,6 +88,9 @@ class LaunchScreenViewController: UIViewController {
         setupRefreshButton()
         setupMessageViewConstraints()
     }
+    //check for internet first.
+    //then fill the tables with pairs for KRW and BTC
+    //then show the tables
     private func checkPoints(){
         if !checkForInternet(){return}
         fillTables()
@@ -143,8 +146,6 @@ class LaunchScreenViewController: UIViewController {
     }
     private func fillTables(){
         FillKRWList.shared.fillPairs()
-//        FillKRWList.shared.fillKRW()
-//        FillKRWList.shared.fillBTC()
     }
 }
 extension UIView {
